@@ -167,6 +167,7 @@ if(!MOTION_OFF&&window.matchMedia("(pointer:fine)").matches){
     ctx.beginPath();ctx.arc(cx,cy,S*.155,0,TAU);
     ctx.strokeStyle="rgba(200,240,255,.5)";ctx.lineWidth=1.5;ctx.stroke();
   }
+  let time=0,last=0,tx=0,ty=0,smx=0,smy=0;
   function draw(){
     ctx.clearRect(0,0,W,H);
     reticle();
@@ -180,7 +181,6 @@ if(!MOTION_OFF&&window.matchMedia("(pointer:fine)").matches){
     particles(time);
     core(Math.sin(time*2.4)*.5+.5);
   }
-  let time=0,last=0,tx=0,ty=0,smx=0,smy=0;
   window.addEventListener("mousemove",e=>{
     const r=wrap.getBoundingClientRect();
     tx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width*.9)));
